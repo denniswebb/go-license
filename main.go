@@ -21,6 +21,7 @@ func main() {
 		fmt.Print(err)
 		os.Exit(1)
 	}
+	fmt.Println("Done.")
 }
 
 func checkLicense(path string, info os.FileInfo, err error) error {
@@ -34,7 +35,7 @@ func checkLicense(path string, info os.FileInfo, err error) error {
 
 	l, err := license.NewFromDir(path)
 	if err == nil {
-		fmt.Printf("%s: %s", path, l.Type)
+		fmt.Printf("%s: %s\n", path, l.Type)
 	}
 	return nil
 }

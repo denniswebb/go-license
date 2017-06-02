@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER "Dennis Webb <dhwebb@gmail.com>"
 
 RUN apk add --no-cache --update curl jq && \
-    URL=$(curl -s https://api.github.com/repos/denniswebb/go-license/releases/latest | jq -r ".assets[] | select(.name == \"linux-amd64\") | .browser_download_url") && \
+    URL=$(curl -s https://api.github.com/repos/denniswebb/go-license/releases/latest | jq -r ".assets[] | select(.name == \"go-license-linux-amd64\") | .browser_download_url") && \
     curl -SsL --retry 5 "${URL}" > /usr/local/bin/go-license && \
     chmod +x /usr/local/bin/go-license
 
